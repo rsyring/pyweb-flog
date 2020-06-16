@@ -1,0 +1,15 @@
+# app
+arrow
+flask
+flask_sqlalchemy
+psycopg2-binary
+python-dotenv
+requests
+
+# testing
+pytest
+responses
+
+# dev environment
+flake8
+-e .
