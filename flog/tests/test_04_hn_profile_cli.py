@@ -12,6 +12,7 @@
        in the output.  Make that change, adjust the tests from the last exercise and refactor
        existing code as needed (but not the current tests) to make sure all tests pass and the
        output in the browser and the CLI look as one would expect.
+    6. Run the browser version and cli version to make sure it works for real too
 """
 import pytest
 
