@@ -13,6 +13,8 @@
        existing code as needed (but not the current tests) to make sure all tests pass and the
        output in the browser and the CLI look as one would expect.
     6. Run the browser version and cli version to make sure it works for real too
+    7. Properly handle an invalid username (e.g. 'rsyrin') being passed in.  Practice TDD, write
+       tests first, watch them fail, then change code to make them pass.
 """
 import pytest
 
