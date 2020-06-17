@@ -15,6 +15,9 @@
     6. Run the browser version and cli version to make sure it works for real too
     7. Properly handle an invalid username (e.g. 'rsyrin') being passed in.  Practice TDD, write
        tests first, watch them fail, then change code to make them pass.
+    8. You are probably noticing the CLI and view logic look mostly the same, let's refactor to
+       have use a common function (hackernews.profile_stats(username, use_html)) that both the cli
+       function and view function can use.
 """
 import pytest
 
