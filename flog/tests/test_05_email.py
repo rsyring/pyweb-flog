@@ -1,6 +1,9 @@
 """
     Principle #11: when it comes to external services, there can often be multiple ways to test
         around the service.  Pick the method that is most maintainable and least brittle.
+    Principle #12: tests are responsible for managing expected state (usually at the start of the
+        test)
+    Principle #13: pytest fixtures can be very useful, but don't abuse them
 
     Exercises:
 
