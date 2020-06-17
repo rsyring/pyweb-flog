@@ -36,6 +36,11 @@ def _mail(email):
 @click.argument('username')
 def hn_profile(username):
     profile = hackernews.fetch_profile(username)
+
+    if profile is None:
+        print(f'No HackerNews user: {username}')
+        return
+
     subcount, karma = hackernews.process_profile(profile)
 
     print(f'HackerNews user {username} has {subcount} submissions and' \

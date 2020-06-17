@@ -35,3 +35,8 @@ class Tests:
 
             result = cli.invoke('hn-profile', 'foo')
             assert result.output == 'HackerNews user foo has 3 submissions and 123 karma.\n'
+
+    def test_cli_hn_profile_invalid_user(self, cli):
+        with mock_profile():
+            result = cli.invoke('hn-profile', 'rsyrin')
+            assert result.output == 'No HackerNews user: rsyrin\n'

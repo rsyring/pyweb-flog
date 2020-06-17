@@ -76,3 +76,11 @@ class Tests:
             assert 'HackerNews user rsyring has 3 submissions and 123 karma.' in resp2
 
             m_fetch_profile.assert_called_once_with('rsyring')
+
+    def test_view_invalid_username(self, wt):
+        resp = wt.get('/hn-profile-rls')
+        resp.form['username'] = 'rsyrin'
+
+        with hackernews.mock_profile():
+            resp2 = resp.form.submit()
+            assert 'No HackerNews user: <strong>rsyrin</strong>' in resp2

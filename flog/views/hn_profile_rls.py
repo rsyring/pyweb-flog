@@ -14,6 +14,10 @@ def hn_profile():
 
     username = request.form['username']
     profile_data = hackernews.fetch_profile(username)
+
+    if profile_data is None:
+        return f'No HackerNews user: <strong>{username}</strong>'
+
     subcount, karma = hackernews.process_profile(profile_data)
     return f'HackerNews user {username} has {subcount} submissions and' \
         f' {karma} karma.'
