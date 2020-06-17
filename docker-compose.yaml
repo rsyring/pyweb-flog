@@ -29,3 +29,9 @@ services:
     container_name: flog-rabbitmq
     ports:
       - '127.0.0.1:56721:5672'
+  flog-smtp:
+    image: reachfive/fake-smtp-server:latest
+    container_name: flog_fake_smtp
+    ports:
+      - '127.0.0.1:25:1025'
+      - '127.0.0.1:1080:1080'

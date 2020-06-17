@@ -15,3 +15,6 @@ class Tests:
         resp = web.get('/hello/pyweb')
         assert resp.data == b'Hello, pyweb!'
 
+    def test_email_send(self, cli):
+        result = cli.invoke('mail', 'pyweb@example.com')
+        assert result.output == 'Test email sent to: pyweb@example.com\n'

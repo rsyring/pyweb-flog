@@ -23,8 +23,8 @@ def cli(app):
 @pytest.fixture()
 def db(app):
     with app.app_context():
-        yield flog.app.db
-        flog.app.db.session.remove()
+        yield flog.ext.db
+        flog.ext.db.session.remove()
 
 
 @pytest.fixture()

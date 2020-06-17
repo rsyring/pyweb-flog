@@ -4,10 +4,9 @@ from flask import Flask
 from flask.cli import FlaskGroup
 
 import flog.cli
-from flog.ext import db
+from flog.ext import init_ext
 from flog.libs.testing import CLIRunner
 from flog.views import all_blueprints
-
 
 
 def create_app():
@@ -18,7 +17,7 @@ def create_app():
         'postgresql://postgres:password@localhost:54321/postgres'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-    db.init_app(app)
+    init_ext(app)
 
     for bp in all_blueprints:
         app.register_blueprint(bp)
