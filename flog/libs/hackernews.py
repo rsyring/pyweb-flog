@@ -15,6 +15,20 @@ def process_profile(profile_data):
     return subcount, profile_data["karma"]
 
 
+def profile_stats(username, use_html):
+    profile = fetch_profile(username)
+
+    styled_username = f'<strong>{username}</strong>' if use_html else username
+
+    if profile is None:
+        return f'No HackerNews user: {styled_username}'
+
+    subcount, karma = process_profile(profile)
+
+    return f'HackerNews user {styled_username} has {subcount} submissions and' \
+        f' {karma} karma.'
+
+
 @contextlib.contextmanager
 def mock_profile(karma=None, submitted=[1, 2, 3]):
     with mock.patch('flog.libs.hackernews.fetch_profile', autospec=True, spec_set=True) \

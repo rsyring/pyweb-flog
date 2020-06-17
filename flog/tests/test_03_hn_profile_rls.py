@@ -73,7 +73,8 @@ class Tests:
             m_fetch_profile.return_value = self.example_profile
 
             resp2 = resp.form.submit()
-            assert 'HackerNews user rsyring has 3 submissions and 123 karma.' in resp2
+            assert 'HackerNews user <strong>rsyring</strong> has 3 submissions and 123 karma.' \
+                in resp2
 
             m_fetch_profile.assert_called_once_with('rsyring')
 
