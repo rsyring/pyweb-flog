@@ -1,3 +1,13 @@
+"""
+    Principle #1: Just get started (with something trivial)
+
+    Sometimes I get hung up with all the possible variations involved in building
+    something, especially at the very beginning of a project.  When I feel "stuck' this way,
+    similar IMO to writer's block, I find the best remedy is to just get some tests written down.
+    I can then iterate from there and let the architecture reveal itself based on actual needs,
+    avoiding YAGNI.
+"""
+
 
 class Tests:
 

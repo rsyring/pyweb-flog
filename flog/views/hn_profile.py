@@ -6,6 +6,15 @@ ident = 'hn-profile-1'
 bp = Blueprint(ident, __name__)
 
 
+def hn_fetch_user(username):
+    return  # this will return a dictionary
+
+
+def hn_process_user_data(resp_data):
+    # resp_data will be a dictionary
+    return  # this could return a string or two pieces of data
+
+
 @bp.route(f'/{ident}', methods=('GET', 'POST'))
 def hn_profile():
     if request.method == 'GET':

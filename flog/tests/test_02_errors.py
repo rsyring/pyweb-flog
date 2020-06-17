@@ -1,3 +1,17 @@
+"""
+    Principle #2: explicit is better than implicit (especially when it comes to errors)
+
+    Libraries can sometimes "hide" exceptions in an effort to be helpful.  But, when testing, you
+    often want to know exactly where the problem originated and don't want intermediate code to
+    "help" you by wrapping or suppressing error messages.
+
+    See also:
+
+    - https://flask.palletsprojects.com/en/1.1.x/config/#TESTING
+    - https://click.palletsprojects.com/en/7.x/api/#click.testing.CliRunner.invoke
+        (catch_exceptions argument)
+
+"""
 import pytest
 
 import flog.app
