@@ -8,7 +8,7 @@ class Tests:
     def test_cli_error(self, cli):
         with pytest.raises(Exception) as excinfo:
             # TODO: Show what this looks like when not caught
-            result = cli.invoke('error')
+            cli.invoke('error')
         assert 'deliberate' in str(excinfo.value)
 
     def test_cli_error_2(self, cli):
@@ -18,7 +18,7 @@ class Tests:
     def test_web_error(self, web):
         with pytest.raises(Exception) as excinfo:
             # TODO: Show what this looks like when not caught
-            resp = web.get('/error')
+            web.get('/error')
         assert 'deliberate' in str(excinfo.value)
 
     def test_web_error2(self):
@@ -27,4 +27,3 @@ class Tests:
 
         resp = web.get('/error')
         assert resp.status_code == 500
-
