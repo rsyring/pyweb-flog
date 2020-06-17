@@ -15,8 +15,6 @@
 """
 from unittest import mock
 
-import requests
-
 from flog.ext import mail
 
 
@@ -47,13 +45,14 @@ class Tests:
         msg.sender == 'from@example.com'
         msg.recipients == ['pyweb@example.com']
 
-    def test_fake_smtp_service(self, cli):
-        requests.delete('http://localhost:1080/api/emails')
-
+    def test_fake_smtp_service(self, cli, fetch_mail):
+        # TODO: demo not clearing the service first
+        # TODO: discuss fast tests & performance
+        # TODO: discuss fixture usefulness and drawbacks
         result = cli.invoke('mail', 'pyweb@example.com')
         assert result.output == 'Test email sent to: pyweb@example.com\n'
 
-        messages = requests.get('http://localhost:1080/api/emails', timeout=2.0).json()
+        messages = fetch_mail()
         assert len(messages) == 1
 
         msg = messages[0]

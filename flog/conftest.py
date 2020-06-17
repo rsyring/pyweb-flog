@@ -1,4 +1,5 @@
 import pytest
+import requests
 
 import flog.app
 import flog.ext
@@ -29,3 +30,12 @@ def db(app):
 @pytest.fixture()
 def web(app):
     return app.test_client()
+
+
+@pytest.fixture()
+def fetch_mail(app):
+    url = 'http://localhost:1080/api/emails'
+    requests.delete(url)
+    app.extensions['mail'].suppress = False
+    yield lambda: requests.get(url, timeout=2.0).json()
+    app.extensions['mail'].suppress = True
