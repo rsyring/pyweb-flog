@@ -10,6 +10,7 @@ requests
 # testing
 pytest
 responses
+webtest
 
 # dev environment
 flake8

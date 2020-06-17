@@ -11,17 +11,18 @@
 
     Exercises (create a new test file and a new view file):
 
-    1. Use the [Webtest] library to do better form handling tests that expose the bug in our view
-         - You will probably want to use a pytest fixture to load the webtest client when needed
-           (see conftest.py)
-         - Fix the bug
-    2. Refactor the view to use a two step process to get and then process the user profile data
+    1. Refactor the view to use a two step process to get and then process the user profile data
         - write a test for hn_process_profile()
         - write stub functions
         - refactor view to use stub functions (current tests should not break)
-    3. Use [patch] to mock out hn_fetch_profile()
+    2. Use [patch] to mock out hn_fetch_profile()
         - it's a good idea to provide different data than live, to make sure your mock is working
-    4. Use [responses] to test hn_fetch_profile()
+    3. Use [responses] to test hn_fetch_profile()
+    4. Use the [Webtest] library to do better form handling tests that expose the bug in our view
+        - You will probably want to use a pytest fixture to load the webtest client when needed
+           (see conftest.py for example)
+        - This will result in a single test for your view, handling both GET & POST in the same test
+        - Fix the bug
 
     [webtest]: https://docs.pylonsproject.org/projects/webtest/
     [patch]: https://docs.python.org/3/library/unittest.mock.html#unittest.mock.patch
