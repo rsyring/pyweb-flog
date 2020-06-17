@@ -44,14 +44,13 @@ def wt(app):
 
 class Tests:
     example_profile = {
-        'id': 'foo',
         'karma': '123',
         'submitted': [4, 5, 6]
     }
 
     def test_hn_process_profile(self):
         result = hackernews.process_profile(self.example_profile)
-        assert result == 'HackerNews user foo has 3 submissions and 123 karma.'
+        assert result == (3, '123')
 
     @responses.activate
     def test_hn_fetch_profile(self):
@@ -74,6 +73,6 @@ class Tests:
             m_fetch_profile.return_value = self.example_profile
 
             resp2 = resp.form.submit()
-            assert 'HackerNews user foo has 3 submissions and 123 karma.' in resp2
+            assert 'HackerNews user rsyring has 3 submissions and 123 karma.' in resp2
 
             m_fetch_profile.assert_called_once_with('rsyring')

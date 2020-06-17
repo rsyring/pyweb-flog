@@ -14,4 +14,6 @@ def hn_profile():
 
     username = request.form['username']
     profile_data = hackernews.fetch_profile(username)
-    return hackernews.process_profile(profile_data)
+    subcount, karma = hackernews.process_profile(profile_data)
+    return f'HackerNews user {username} has {subcount} submissions and' \
+        f' {karma} karma.'
