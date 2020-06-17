@@ -22,7 +22,6 @@ def error():
 @click.argument('email')
 def _mail(email):
     ''' Send test email to <email> '''
-    # TODO: demonstrate brittleness of this type of mock
     mail.send_message(
         subject='Flog Test Email',
         body='Zen of Python',
