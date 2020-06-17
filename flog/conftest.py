@@ -6,8 +6,7 @@ import flog.ext
 
 @pytest.fixture(scope='session')
 def app():
-    app = flog.app.create_app()
-    app.testing = True
+    app = flog.app.create_app(testing=True)
 
     flog.ext.db.drop_all(app=app)
     flog.ext.db.create_all(app=app)

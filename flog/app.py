@@ -9,9 +9,10 @@ from flog.libs.testing import CLIRunner
 from flog.views import all_blueprints
 
 
-def create_app():
+def create_app(testing=False):
     app = Flask(__name__)
     app.test_cli_runner_class = CLIRunner
+    app.testing = testing
 
     app.config['SQLALCHEMY_DATABASE_URI'] = \
         'postgresql://postgres:password@localhost:54321/postgres'
