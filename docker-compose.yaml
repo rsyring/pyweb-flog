@@ -24,11 +24,6 @@ services:
         POSTGRES_HOST_AUTH_METHOD: trust
         # Could use this instead with a strong password if working outside a dev env
         # POSTGRES_PASSWORD: password
-  flog-rabbitmq:
-    image: rabbitmq:3.8-alpine
-    container_name: flog-rabbitmq
-    ports:
-      - '127.0.0.1:56721:5672'
   flog-smtp:
     image: reachfive/fake-smtp-server:latest
     container_name: flog_fake_smtp
