@@ -5,7 +5,7 @@
     Exercises:
 
     1. Use mock.patch to prevent mail from actually sending
-    2. Use the facilities built into flask-mailman for testing
+    2. Use the facilities built into flask-mail for testing
     3. Use API calls to fake-smtp-server to check the mail that gets queued
         - Use a flask fixture to clear all queued emails in fake-smtp-server to avoid cross-test
           contamination

@@ -1,7 +1,7 @@
 # app
 arrow
 flask
-flask-mailman
+flask-mail
 flask_sqlalchemy
 psycopg2-binary
 python-dotenv

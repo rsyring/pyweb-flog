@@ -21,11 +21,11 @@ def error():
 @click.argument('email')
 def _mail(email):
     ''' Send test email to <email> '''
-    mail.send_mail(
-        'Flog Test Email',
-        'Zen of Python',
-        'from@example.com',
-        [email],
-        fail_silently=False,
+    # TODO: demonstrate brittleness of this type of mock
+    mail.send_message(
+        subject='Flog Test Email',
+        body='Zen of Python',
+        sender='from@example.com',
+        recipients=[email],
     )
     print(f'Test email sent to: {email}')
