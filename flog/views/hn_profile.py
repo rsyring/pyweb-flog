@@ -1,16 +1,16 @@
 from flask import Blueprint, request, render_template
 import requests
 
-ident = 'hn-profile-1'
+ident = 'hn-profile'
 
 bp = Blueprint(ident, __name__)
 
 
-def hn_fetch_user(username):
+def hn_fetch_profile(username):
     return  # this will return a dictionary
 
 
-def hn_process_user_data(resp_data):
+def hn_process_profile(profile_data):
     # resp_data will be a dictionary
     return  # this could return a string or two pieces of data
 
