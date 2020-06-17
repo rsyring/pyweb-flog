@@ -33,6 +33,7 @@ import pytest
 import responses
 import webtest
 
+from flog.libs import hackernews
 from flog.views import hn_profile_rls
 
 
@@ -49,7 +50,7 @@ class Tests:
     }
 
     def test_hn_process_profile(self):
-        result = hn_profile_rls.hn_process_profile(self.example_profile)
+        result = hackernews.process_profile(self.example_profile)
         assert result == 'HackerNews user foo has 3 submissions and 123 karma.'
 
     @responses.activate
@@ -60,7 +61,7 @@ class Tests:
             json={'foo': 'bar'}
         )
         # TODO: demonstrate what happens if 'rsyring' is changed
-        result = hn_profile_rls.hn_fetch_profile('rsyring')
+        result = hackernews.fetch_profile('rsyring')
         # TODO: note that we are only testing that the data is passed through.  It doesn't have to
         # be actual profile data.
         assert result == {'foo': 'bar'}
@@ -69,7 +70,7 @@ class Tests:
         resp = wt.get('/hn-profile-rls')
         resp.form['username'] = 'rsyring'
 
-        with mock.patch.object(hn_profile_rls, 'hn_fetch_profile') as m_fetch_profile:
+        with mock.patch.object(hn_profile_rls.hackernews, 'fetch_profile') as m_fetch_profile:
             m_fetch_profile.return_value = self.example_profile
 
             resp2 = resp.form.submit()
