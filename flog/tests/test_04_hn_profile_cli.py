@@ -27,7 +27,7 @@ import pytest
 
 
 class Tests:
-    @pytest.mark.skip(reason='expected to fail until command is created')
+
     def test_cli_hn_profile(self, cli):
         # Hint: you will need to do some mocking
         result = cli.invoke('hn-profile', 'rsyring')
