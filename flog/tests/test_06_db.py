@@ -20,21 +20,20 @@ import flog.model.entities as ents
 
 
 class Tests:
-    def test_comment(self, db):
-        post = ents.Post(title='foo', author='bar', body='baz')
-        comment = ents.Comment(post=post, title='cfoo', author='cbar', body='cbaz')
-        db.session.add(comment)
+    @pytest.fixture(autouse=True)
+    def setup(self, db):
+        ents.Post.query.delete()
         db.session.commit()
+
+    def test_comment(self, db):
+        comment = ents.Comment.testing_create()
         assert ents.Post.query.count() == 1
-        assert ents.Post.query.first() is post
+        assert ents.Post.query.first() is comment.post
 
         assert ents.Comment.query.count() == 1
         assert ents.Comment.query.first() is comment
 
-    @pytest.mark.skip(reason='need to prep state')
     def test_post(self, db):
-        post = ents.Post(title='foo', author='bar', body='baz')
-        db.session.add(post)
-        db.session.commit()
+        post = ents.Post.testing_create()
         assert ents.Post.query.count() == 1
         assert ents.Post.query.first() is post
